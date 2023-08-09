@@ -1,0 +1,5 @@
+/opt/spark-3.2.1-bin-hadoop3.2/bin/spark-submit \
+ --master local[2] \
+ /home/vivek/User_Data/repositories/spark_code_examples/spark_json_examples/nested_json.py \
+--input_path "/home/vivek/User_Data/repositories/spark_code_examples/spark_json_examples/data/file1.json" \
+--appName "JSON APP"
