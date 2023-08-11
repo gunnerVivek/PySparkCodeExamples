@@ -33,6 +33,7 @@ def drop_col_even_single_null(df: DataFrame)->DataFrame:
         single Null dropped
     '''
 
+    # get count of Nulls for every column of df
     null_counts = (df.select(
         [count(when(col(c).isNull() | trim(col(c)).eqNullSafe(""), c)).alias(c)
           for c in df.columns
