@@ -1,0 +1,48 @@
+/opt/spark-3.2.1-bin-hadoop3.2/bin/spark-submit \
+ --master local[2] \
+ /home/vivek/User_Data/repositories/spark_code_examples/spark_json_examples/nested_json.py \
+--input_path "/home/vivek/User_Data/repositories/spark_code_examples/spark_json_examples/data/file1.json" \
+--appName "JSON APP"
+
+the actual main code script is the nested_json.py
+the arguments below that --input, --appName are for argparse
+
+============================================================================================================================================
+
+spark-submit \
+--master yarn \
+--deploy-mode cluster \
+--num-executers 10 \
+--executors-cores 2 \
+--driver-memory 5g \
+--executer-memory 10g \
+--conf "spark.dynamicAllocation.enabled=true" \
+--py-files /path/script.py \
+--files /path/abc.json \
+your_python_script.py arg1 arg2
+
+
+Above arguments:
+	--py-files ==> PySpark allows to upload Python files (.py), zipped Python packages (.zip), and Egg files (.egg)
+		       to the executors with this option.
+		       
+		       This is used when we need to distribute a library dependency like pyarrow, pandas or our own custom 
+		       code to be installed on each executer of the cluster. 
+		       All these codes wil be added to the class path which then can be imported and used.
+		       
+        	       Ex: https://spark.apache.org/docs/3.1.1/api/python/user_guide/python_packaging.html
+	
+	--files ==> In general add your data files via --files or --archives
+	
+		    --files and --archives options support specifying file names with the # similar to Hadoop.
+		    For example, you can specify: --files localtest.txt#appSees.txt and this will upload the file
+		    you have locally named localtest.txt into HDFS but this will be linked to by the name appSees.txt,
+		    and your application should use the name as appSees.txt to reference it when running on YARN.
+		    
+		    from pyspark import SparkFiles
+		    # this will give file path 
+		    file_path = SparkFiles.get("row_null.csv")
+		    
+		    /tmp/spark-388e133f-ca49-4f96-8776-7eab7551fcb8/userFiles-2956f4ad-eaf2-499f-b151-7285522954e7/row_null.csv
+		    		    
+		    
