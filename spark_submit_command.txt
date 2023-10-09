@@ -27,7 +27,8 @@ Above arguments:
 		       to the executors with this option.
 		       
 		       This is used when we need to distribute a library dependency like pyarrow, pandas or our own custom 
-		       code to be installed on each executer of the cluster. 
+		       code to be installed on each executer of the cluster.
+
 		       All these codes wil be added to the class path which then can be imported and used.
 		       
         	       Ex: https://spark.apache.org/docs/3.1.1/api/python/user_guide/python_packaging.html
