@@ -14,9 +14,9 @@ conf = SparkConf()
                 conf.set("spark.jars", "jars/hadoop-aws-3.3.1.jar,jars/aws-java-sdk-bundle-1.11.375.jar")
 # conf.set("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3native.NativeS3FileSystem")
 conf.set("fs.s3a.endpoint", "s3.amazonaws.com")
-# # conf.set("spark.hadoop.fs.s3a.awsAccessKeyId", "AKIAZ32Q7LTBAU7TKKHM")
-conf.set("fs.s3a.access.key", "AKIAZ32Q7LTBAU7TKKHM")
-conf.set("fs.s3a.secret.key", "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")
+# # conf.set("spark.hadoop.fs.s3a.awsAccessKeyId", "xxxxxxxxxxxxxx")
+conf.set("fs.s3a.access.key", "xxxxxxxxxxxxxx")
+conf.set("fs.s3a.secret.key", "xxxxxxxxxxxxxx")
 
 sc = SparkContext(conf=conf)
 
