@@ -32,6 +32,20 @@ Above arguments:
 		       All these codes wil be added to the class path which then can be imported and used.
 		       
         	       Ex: https://spark.apache.org/docs/3.1.1/api/python/user_guide/python_packaging.html
+
+
+        	   Example: Given code main pyspark code in main.py and helper functions are in
+        	        custom_codes
+        	            |
+        	            |- custom_module.py
+
+        	        in Code: from custom_codes.custom_module import custom_function
+
+        	        Next zip the custom_codes to custom_codes.py
+        	        spark-submit \
+        	        --master yarn \
+        	        --py-files /path/to/custom_codes.py
+        	        main.py
 	
 	--files ==> In general add your data files via --files or --archives
 	
@@ -46,4 +60,9 @@ Above arguments:
 		    
 		    /tmp/spark-388e133f-ca49-4f96-8776-7eab7551fcb8/userFiles-2956f4ad-eaf2-499f-b151-7285522954e7/row_null.csv
 		    		    
-		    
+==============================================================================================================================================
+
+spark-submit \
+--master yarn
+--deploy-mode cluster
+--

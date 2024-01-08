@@ -31,7 +31,7 @@ df.show()
 
 def drop_columns_all_null(df: DataFrame) -> DataFrame:
     """
-    Finds amx of each column. If max is None than the column has only
+    Finds max of each column. If max is None than the column has only
     Null values.
 
     :param df: Input DataFrame to checked for Nulls
